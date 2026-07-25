@@ -1,0 +1,69 @@
+{
+  "general": {
+    "dashboard": true,
+    "refresh_seconds": 1
+  },
+  "web": {
+    "enabled": true,
+    "host": "127.0.0.1",
+    "port": 8080
+  },
+  "country_file": {
+    "enabled": true,
+    "url": "https://www.country-files.com/cty/cty.dat",
+    "cache_path": "data/cty.dat",
+    "download_timeout_seconds": 15,
+    "update_interval_seconds": 86400
+  },
+  "login": "EA0TEST",
+  "upstream": {
+    "keepalive_seconds": 180,
+    "keepalive_command": "",
+    "reconnect_initial_seconds": 1,
+    "reconnect_max_seconds": 30
+  },
+  "server": {
+    "host": "0.0.0.0",
+    "port": 7300,
+    "client_timeout_seconds": 300,
+    "client_queue_lines": 1000,
+    "default_sources": [
+      "dxcluster"
+    ],
+    "client_config_path": "data/clients.json",
+    "welcome": "DXSpot Agregator"
+  },
+  "sources": {
+    "dxcluster": {
+      "name": "DXSPOT",
+      "host": "ea4ure.com",
+      "port": 7300,
+      "commands": [
+        "unset/skimmer",
+        "clear/spot all"
+      ],
+      "enabled": true
+    },
+    "rbn_cw": {
+      "name": "RBNCW",
+      "host": "telnet.reversebeacon.net",
+      "port": 7000,
+      "commands": [],
+      "enabled": true
+    },
+    "rbn_digital": {
+      "name": "RBNMGM",
+      "host": "telnet.reversebeacon.net",
+      "port": 7001,
+      "commands": [],
+      "enabled": true
+    },
+    "rbn_local": {
+      "name": "RBNLCL",
+      "host": "rbn.ea1ura.com",
+      "port": 7300,
+      "commands": [],
+      "enabled": true
+    }
+  }
+}

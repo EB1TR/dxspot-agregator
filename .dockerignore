@@ -1,0 +1,9 @@
+.git
+.gitignore
+.agents
+.codex
+__pycache__
+*.py[cod]
+data
+config.json
+.DS_Store

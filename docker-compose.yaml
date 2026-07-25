@@ -1,0 +1,24 @@
+services:
+  dxspot-agregator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: dxspot-agregator:local
+    container_name: dxspot-agregator
+    init: true
+    restart: unless-stopped
+    environment:
+      DXA_SERVER_HOST: "0.0.0.0"
+      DXA_SERVER_PORT: "7300"
+      DXA_WEB_HOST: "0.0.0.0"
+      DXA_WEB_PORT: "8080"
+    ports:
+      - "${DXA_PORT:-7300}:7300"
+      - "${DXA_WEB_PORT:-8080}:8080"
+    volumes:
+      - ./config.json:/app/config.json:ro
+      - dxspot-data:/app/data
+    stop_grace_period: 10s
+
+volumes:
+  dxspot-data:

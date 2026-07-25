@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>DXSpot Agregator</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="brand">
+        <p class="eyebrow">EB1TR · DXA</p>
+        <h1>DXSpot Agregator</h1>
+      </div>
+      <div class="live-status">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span id="connection-status">Conectando</span>
+      </div>
+      <dl class="header-stats">
+        <div><dt>Versión</dt><dd id="version">—</dd></div>
+        <div><dt>CTY</dt><dd id="country-version">—</dd></div>
+        <div><dt>Actividad</dt><dd id="updated-at">—</dd></div>
+      </dl>
+      <div class="dashboard-pills">
+        <span id="uptime" class="pill">—</span>
+        <span id="client-count" class="pill">0 clientes</span>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <div class="dashboard-columns">
+        <div class="metrics-column">
+          <section class="data-panel" aria-labelledby="common-title">
+        <header class="panel-header">
+          <div>
+            <p class="section-kicker">CONEXIONES COMPARTIDAS</p>
+            <h2 id="common-title">Fuentes comunes</h2>
+          </div>
+          <p>Ventana 10s · suavizado EMA · actualización 1s · histórico 10m</p>
+        </header>
+        <div id="common-source-rows" class="metric-card-grid">
+          <p class="empty-card-grid">Esperando datos…</p>
+        </div>
+          </section>
+
+          <section class="data-panel" aria-labelledby="clients-title">
+        <header class="panel-header">
+          <div>
+            <p class="section-kicker">CONEXIONES INDIVIDUALES</p>
+            <h2 id="clients-title">Clientes</h2>
+          </div>
+          <p>Entrega general final por cliente</p>
+        </header>
+        <div id="client-rows" class="metric-card-grid">
+          <p class="empty-card-grid">Sin clientes conectados</p>
+        </div>
+          </section>
+
+        </div>
+
+        <section class="activity-panel" aria-labelledby="activity-title">
+        <header class="activity-header">
+          <div>
+            <p class="section-kicker">DIAGNÓSTICO</p>
+            <h2 id="activity-title">Actividad</h2>
+          </div>
+          <select
+            id="activity-select"
+            class="activity-select"
+            aria-label="Vista de actividad o stream"
+          >
+            <option value="activity">ACTIVIDAD</option>
+          </select>
+        </header>
+        <ol id="activity-list" class="activity-list" aria-live="off">
+          <li class="event-info">
+            <time>[--:--:--.---]</time>
+            <span>Esperando eventos del sistema…</span>
+          </li>
+        </ol>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
